@@ -6,7 +6,7 @@ Description
 
 [pyapns](https://github.com/samuraisam/pyapns) is an universal Apple Push Notification Service (APNS) provider.
 
-This is simple Chef recipe that can be used to install it on Engine Yard environment.
+This is simple Chef recipe that can be used to install and monitor it on Engine Yard cloud.
 
 Usage:
 =====================================
