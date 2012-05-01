@@ -1,0 +1,5 @@
+check process pyapns_<%= @appname %>
+  with pidfile /data/<%= @appname %>/current/tmp/pids/pyapns.pid
+  start program = "/bin/sh -c 'twistd --pidfile=/data/<%= @appname %>/current/tmp/pids/pyapns.pid --logfile=/data/<%= @appname %>/current/log/pyapns.log -r epoll web --class=pyapns.server.APNSServer --port=7077'" as uid deploy and gid deploy
+  stop program = "/bin/sh -c 'kill `cat /data/<%= @appname %>/current/tmp/pids/pyapns.pid`'" as uid deploy and gid deploy
+  group pyapns_<%= @appname %>
