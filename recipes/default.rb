@@ -7,12 +7,20 @@
 appname = "Your app name goes here"
 
 if ['solo', 'util'].include?(node[:instance_role])
+  execute "install pip" do
+    command "sudo easy_install pip"
+  end
+
   execute "install simplejson" do
-    command "sudo easy_install simplejson"
+    command "sudo pip install simplejson"
+  end
+
+  execute "install zope.interface-3.8.0" do
+    command "sudo pip install zope.interface==3.8.0"
   end
 
   execute "install pyapns" do
-    command "sudo easy_install pyapns"
+    command "sudo pip install pyapns"
   end
 
   template "/etc/monit.d/pyapns_#{appname}.monitrc" do
